@@ -1,0 +1,15 @@
+.reactionsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  & > * {
+    width: 32px;
+    aspect-ratio: 1/1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

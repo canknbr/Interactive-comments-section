@@ -1,7 +1,15 @@
 import React from 'react';
 
+import './styles/variables.scss';
+import './styles/global.scss';
+import { Conversation } from './components/conversation';
+
 function App() {
-  return <div>App</div>;
+  return (
+    <div className="container">
+      <Conversation />
+    </div>
+  );
 }
 
 export default App;
