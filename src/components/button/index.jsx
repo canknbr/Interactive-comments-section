@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import { clsx } from 'clsx';
 
-function Button({ varian = 'ghost', children, ...rest }) {
+function Button({ variant = 'ghost', children, ...rest }) {
   return (
-    <button className={styles.button} {...rest}>
+    <button className={clsx(styles.button, styles[variant])} {...rest}>
       {children}
     </button>
   );
