@@ -11,9 +11,13 @@ function Header() {
       createdAt,
       user: { username },
     },
+    handleReply,
     currentUser,
+    onDelete,
+    onEditing,
   } = useCommentHook();
   const isCurrentUser = currentUser.username === username;
+
   return (
     <div className={styles.headerWrapper}>
       <div className={styles.imageWrapper}>
@@ -25,17 +29,17 @@ function Header() {
       <div className={styles.actionButtons}>
         {isCurrentUser ? (
           <>
-            <Button variant="warning">
+            <Button onClick={onDelete} variant="warning">
               <img src={deleteIcon} alt="" />
               Delete
             </Button>
-            <Button>
+            <Button onClick={onEditing}>
               <img src={editIcon} alt="" />
               Edit
             </Button>
           </>
         ) : (
-          <Button>
+          <Button onClick={handleReply}>
             <img src={replyIcon} alt="" />
             Reply
           </Button>

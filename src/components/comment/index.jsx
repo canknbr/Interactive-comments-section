@@ -4,12 +4,10 @@ import { Header } from './header';
 import { Body } from './body';
 import styles from './styles.module.scss';
 import { useCommentHook, CommentContextProvider } from './useCommentHook';
+import { NewCommentEditor } from '../new-comment-editor';
 function Comment() {
-  const {
-    comment: { replies },
-    currentUser,
-  } = useCommentHook();
-
+  const { comment, currentUser, isReplying ,onNewReply} = useCommentHook();
+  if (!comment) return null;
   return (
     <>
       <div className={styles.commentWrapper}>
@@ -19,9 +17,9 @@ function Comment() {
           <Body />
         </div>
       </div>
-      {replies?.length > 0 && (
+      {comment?.replies?.length > 0 && (
         <div className={styles.replies}>
-          {replies.map(reply => (
+          {comment?.replies.map(reply => (
             <CommentContextProvider
               key={reply.id}
               data={{ comment: reply, currentUser }}
@@ -31,6 +29,9 @@ function Comment() {
           ))}
         </div>
       )}
+      {isReplying && <NewCommentEditor
+      onClick={onNewReply}
+       isReply />}
     </>
   );
 }

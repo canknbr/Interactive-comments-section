@@ -6,15 +6,18 @@ import styles from './styles.module.scss';
 import { useCommentHook } from '../useCommentHook';
 function Reactions() {
   const {
+    onPlus,
+    onMinus,
+
     comment: { score },
   } = useCommentHook();
   return (
     <div className={styles.reactionsWrapper}>
-      <Button aria-labelledby="Positive reaction button">
+      <Button onClick={onPlus} aria-labelledby="Positive reaction button">
         <img src={plusIcon} aria-hidden="true" />
       </Button>
       <p>{score}</p>
-      <Button aria-labelledby="Negative reaction button">
+      <Button onClick={onMinus} aria-labelledby="Negative reaction button">
         <img src={minusIcon} aria-hidden="true" />
       </Button>
     </div>
