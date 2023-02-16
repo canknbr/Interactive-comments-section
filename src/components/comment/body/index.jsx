@@ -3,11 +3,17 @@ import { useCommentHook } from '../useCommentHook';
 import styles from './styles.module.scss';
 function Body() {
   const {
-    comment: { content },
+    comment: { content, replyingTo },
   } = useCommentHook();
   return (
     <div>
-      <p className={styles.content}>{content}</p>
+      <p className={styles.content}>
+        {replyingTo && (
+          <span className={styles.replyingTo}>@{replyingTo}&nbsp; </span>
+        )}
+
+        {content}
+      </p>
     </div>
   );
 }

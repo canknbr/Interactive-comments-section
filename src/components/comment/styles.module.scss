@@ -12,3 +12,22 @@
   gap: 8px;
   flex: 1;
 }
+
+.replies {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 48px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -26px;
+    border-radius: 12px;
+    width: 2px;
+    height: 100%;
+    background-color: var(--light-gray);
+  }
+}
